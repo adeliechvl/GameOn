@@ -180,6 +180,15 @@ function formValidation(event) {
   if (formConfirmation === true) {
     form.style.display = "none";
     submitBtn.style.display = "none";
+
+    // data stored in local storage if correct
+    localStorage.setItem("first", document.querySelector("#first").value);
+    localStorage.setItem("last", document.querySelector("#last").value);
+    localStorage.setItem("email", document.querySelector("#email").value);
+    localStorage.setItem("birthdate", document.querySelector("#birthdate").value);
+    localStorage.setItem("quantity", document.querySelector("#quantity").value);
+    localStorage.setItem("location", document.querySelector("input[name='location']:checked").value);
+    localStorage.setItem("termsOfUse", document.querySelector("#checkbox1").value);
   }
 }
 
