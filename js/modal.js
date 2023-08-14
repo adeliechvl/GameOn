@@ -44,24 +44,24 @@ confirmationMessage.style.display = "none";
 function inputsVerification() {
 
   // first name input
-  const first = document.querySelector("#first");
-  const firstError = document.getElementById("firstError");
-  const verifName = /^[A-Za-z]+$/;
+  const first = document.querySelector("#first"); // we call "for" input
+  const firstError = document.getElementById("firstError"); // and error id input
+  const verifName = /^[A-Za-z]+$/; // regex to check first and last name
   if (
-    first.value == null ||
-    !first.value.match(verifName) ||
-    first.value.length < 2
+    first.value == null || // if input empty = error
+    !first.value.match(verifName) || // if input doesn't respect regex = error
+    first.value.length < 2 //if input length id less than 2 characters = error
   ) {
-    firstError.textContent =
+    firstError.textContent = // error message is displayed
       "Veuillez entrer au moins 2 caractères ou plus pour le champ du prénom.";
-    firstError.style.color = "red";
+    firstError.style.color = "red"; // error input style
     firstError.style.fontSize = "12px";
     first.style.borderColor = "red";
     first.style.borderWidth = "2px";
-    return formConfirmation === false;
+    return formConfirmation === false; // input incorrect so form incomplete
   } else {
-    firstError.style.display = "none";
-    first.style.borderColor = "green";
+    firstError.style.display = "none"; // if correct = error not displayed
+    first.style.borderColor = "green"; // correct input style
     first.style.borderWidth = "2px";
   }
 
@@ -143,7 +143,7 @@ function inputsVerification() {
   const locationError = document.getElementById("locationError");
   if (
     !(
-      location[0].checked ||
+      location[0].checked || // tab to chech if one checkbox is selected
       location[1].checked ||
       location[2].checked ||
       location[3].checked ||
@@ -163,7 +163,7 @@ function inputsVerification() {
   // terms of use checkbox
   const termsOfUse = document.querySelector("#checkbox1");
   const termsOfUseError = document.getElementById("termsOfUseError");
-  if (!termsOfUse.checked) {
+  if (!termsOfUse.checked) { // if checkbox not checked error
     termsOfUseError.textContent =
       "Vous devez vérifier que vous acceptez les termes et conditions pour valider votre inscription.";
     termsOfUseError.style.color = "red";
@@ -180,18 +180,19 @@ function inputsVerification() {
 
 // function to check if form is correct, if yes confirmation message is displayed
 function formValidation(event) {
-  inputsVerification();
+  inputsVerification(); // we call function to check if all inputs are correct
   event.preventDefault();
-  if (formConfirmation === true) {
-    form.style.display = "none";
-    confirmationMessage.style.display = "flex";
+  if (formConfirmation === true) { // if form correct and complete :
+    form.style.display = "none"; // form is hidden
+    confirmationMessage.style.display = "flex"; // confirmation message style is displayed 
     confirmationMessage.style.textAlign = "center";
     confirmationMessage.style.fontSize = "36px";
-    submitBtn.style.display = "none";
-    closeBtn.style.display = "block";
-    closeBtn.addEventListener("click", closeModal);
+    submitBtn.style.display = "none"; // submit button hidden
+    closeBtn.style.display = "block"; // closebtn is displayed
+    closeBtn.addEventListener("click", closeModal); // event to close modal when click on closebtn
 
     // data stored in local storage if correct
+    // we get item from class name + value and store it in local storage
     localStorage.setItem("first", document.querySelector("#first").value);
     localStorage.setItem("last", document.querySelector("#last").value);
     localStorage.setItem("email", document.querySelector("#email").value);
