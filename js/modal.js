@@ -13,7 +13,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const modalClose = document.querySelectorAll(".close");
 const formData = document.querySelectorAll(".formData");
 const form = document.getElementById("reserve");
-const submitBtn = document.querySelector(".btn-submit");
+const submitBtn = document.getElementById("btn-submit");
 const closeBtn = document.getElementById("closeBtn");
 const confirmationMessage = document.getElementById("confirmationMessage");
 
@@ -186,7 +186,7 @@ function formValidation(event) {
     form.style.display = "none";
     confirmationMessage.style.display = "flex";
     confirmationMessage.style.textAlign = "center";
-    confirmationMessage.style.fontSize = "30px";
+    confirmationMessage.style.fontSize = "36px";
     submitBtn.style.display = "none";
     closeBtn.style.display = "block";
     closeBtn.addEventListener("click", closeModal);
