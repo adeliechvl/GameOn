@@ -341,6 +341,7 @@ input[data-error]::after {
   margin: 0 190px 15px;
   padding: 10px 40px 10px;
 }
+
 /* custom select styles */
 
 .custom-select {
@@ -686,6 +687,7 @@ footer {
   #confirmationMessage {
     margin: 0 10px;
   }
+
   #closeBtn {
     margin: 0 95px 20px;
   }

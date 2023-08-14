@@ -125,7 +125,7 @@ function inputsVerification() {
   const quantity = document.querySelector("#quantity");
   const quantityError = document.getElementById("quantityError");
   if (quantity.value === "") {
-    quantityError.textContent = 
+    quantityError.textContent =
       "Ce champ ne peut pas être vide.";
     quantityError.style.color = "red";
     quantityError.style.fontSize = "12px";
