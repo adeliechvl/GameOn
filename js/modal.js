@@ -14,6 +14,11 @@ const modalClose = document.querySelectorAll(".close");
 const formData = document.querySelectorAll(".formData");
 const form = document.getElementById("reserve");
 const submitBtn = document.querySelector(".btn-submit");
+const closeBtn = document.getElementById("closeBtn");
+const confirmationMessage = document.getElementById("confirmationMessage");
+
+// at first form is empty or some inputs are not correct
+let formConfirmation = false;
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -31,9 +36,9 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// at first form is empty or some inputs are not correct
-let formConfirmation = false;
-
+// confirmation message and close button not displayed if form not validated
+closeBtn.style.display = "none";
+confirmationMessage.style.display = "none";
 
 /// function to check if form inputs are correct, if not error message is displayed
 function inputsVerification() {
@@ -179,7 +184,12 @@ function formValidation(event) {
   event.preventDefault();
   if (formConfirmation === true) {
     form.style.display = "none";
+    confirmationMessage.style.display = "flex";
+    confirmationMessage.style.textAlign = "center";
+    confirmationMessage.style.fontSize = "30px";
     submitBtn.style.display = "none";
+    closeBtn.style.display = "block";
+    closeBtn.addEventListener("click", closeModal);
 
     // data stored in local storage if correct
     localStorage.setItem("first", document.querySelector("#first").value);
